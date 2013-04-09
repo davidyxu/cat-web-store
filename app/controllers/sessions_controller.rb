@@ -28,4 +28,6 @@ class SessionsController < ApplicationController
     session[:cart] << params[:product_id]
     redirect_to products_path
   end
+
+  #REV: Why is add_to_cart in the session controller, seems more like a products controller action.
 end

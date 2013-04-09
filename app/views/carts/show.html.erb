@@ -19,6 +19,7 @@
     <input type="submit" value="Update Cart">
   <% end %>
     <p>Total: $<%= @total %></p>
+    <!--REV:  You can use #number_to_currency here -->
 
   <%= form_for(:cart, :url => order_url, :method => :post) do |f|%>
     <input type="submit" value="Checkout">

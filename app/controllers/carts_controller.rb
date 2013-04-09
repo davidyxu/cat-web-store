@@ -15,7 +15,7 @@ class CartsController < ApplicationController
       current["quantity"] = quantity
       current["price"] = current_product.to_dollars
       current["line_total"] = current["price"] * quantity
-
+    
       @total += current["line_total"]
       @cart[product_id] = current
     end
