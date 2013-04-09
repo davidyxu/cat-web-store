@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+ActiveRecord::Base.transaction do
+  Product.create!([{name: "Alley Cat", price: 1},
+                   {name: "Pure Persian Cat", price: 1000001},
+                   {name: "Bengal Cat", price: 100050},
+                   {name: "Sickly Lion", price: 5}]
+                 )
+end

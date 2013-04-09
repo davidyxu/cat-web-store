@@ -1,0 +1,6 @@
+<h3>Orders</h3>
+<% @orders.each do |order|%>
+  <%= "#{Product.find(order.product_id).name}: #{order.quantity}" %>
+  <br>
+<% end %>
+<br>

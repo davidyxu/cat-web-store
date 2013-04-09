@@ -1,0 +1,12 @@
+<ul>
+<% @products.each do |product| %>
+  <li>
+   <%= link_to product.name, product_path(product)%> --
+   <%= "$#{product.to_dollars}" %>
+  </li>
+<% end %>
+</ul>
+
+<%= link_to "view cart", cart_path%><br/>
+
+<%= render :partial => "login_footer" %>

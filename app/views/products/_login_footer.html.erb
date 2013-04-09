@@ -1,0 +1,5 @@
+<% unless session[:user_id]%>
+  <%= "You are not logged in. Please log in to shop."%>
+  <br>
+  <%=link_to "Log in", "/login" %>
+<% end %>

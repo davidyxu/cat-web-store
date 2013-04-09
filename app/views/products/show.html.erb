@@ -1,0 +1,12 @@
+<h1><%= @product.name %></h1>
+<p>
+  <%= "$#{@product.to_dollars}" %><br />
+  <% if session[:user_id]%>
+    <%= link_to "Add to cart", product_cart_add_path(@product) %><br />
+    <% end %>
+</p>
+
+
+<%= link_to "view cart", cart_path%><br />
+
+<%= render :partial => "login_footer" %>

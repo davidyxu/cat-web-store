@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>WebStore</title>
+  <title>CatStore</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <h1>CatStore</h1>
+  <h3> the premiere online cat store</h3>
 
-<%= yield %>
+  <% if flash %>
+    <% flash.each do |type, message| %>
+      <div class="<%=type.to_s%>-flash"><%= message %></div>
+    <% end %>
+  <% end %>
+
+  <%= yield %>
+
+  <% if session[:user_id]%>
+    <%= "Currently logged in as #{User.find(session[:user_id]).email}"%>
+    <br>
+    <%=link_to "Log Out", "/logout" %>
+  <% end %>
+
 
 </body>
 </html>

@@ -1,0 +1,27 @@
+<h4>cart</h4>
+
+<% if @cart.empty? %>
+  <p> Cart is empty, yo. Time to get them cats in (your cart). </p>
+<% else %>
+
+  <%= form_for(:cart, :url => cart_url, :method => :put) do |f|%>
+    <ul>
+      <% @cart.each do |product_id, product_details| %>
+        <li>
+          <input type="text" value='<%= product_details["quantity"] %>'
+                 name='cart[<%=product_id%>]'>
+            <%= product_details["name"]%> -- $<%= product_details["line_total"]%>
+          <%= link_to "Remove", product_cart_remove_path(product_id)%>
+        </li>
+      <% end %>
+    </ul>
+
+    <input type="submit" value="Update Cart">
+  <% end %>
+    <p>Total: $<%= @total %></p>
+
+  <%= form_for(:cart, :url => order_url, :method => :post) do |f|%>
+    <input type="submit" value="Checkout">
+  <% end %>
+<% end %>
+<%= link_to "<< back to products", products_path%>
